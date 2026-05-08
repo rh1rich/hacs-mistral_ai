@@ -1,0 +1,116 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Service is already configured",
+      "reauth_successful": "Re-authentication was successful"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error"
+    },
+    "step": {
+      "reauth_confirm": {
+        "data": {
+          "api_key": "API key"
+        },
+        "data_description": {
+          "api_key": "Your Mistral API key."
+        },
+        "description": "Reauthentication required. Enter your updated Mistral API key."
+      },
+      "user": {
+        "data": {
+          "api_key": "API key"
+        },
+        "data_description": {
+          "api_key": "Your Mistral API key."
+        },
+        "description": "Set up the Mistral AI integration by providing your Mistral API key. Instructions to generate an API key can be found in [the Mistral documentation]({instructions_url})."
+      }
+    }
+  },
+  "config_subentries": {
+    "conversation": {
+      "abort": {
+        "entry_not_loaded": "Cannot add things while the configuration is disabled.",
+        "reconfigure_successful": "Reconfiguration was successful"
+      },
+      "entry_type": "Conversation agent",
+      "initiate_flow": {
+        "reconfigure": "Reconfigure conversation agent",
+        "user": "Add conversation agent"
+      },
+      "step": {
+        "advanced": {
+          "data": {
+            "chat_model": "Model",
+            "max_tokens": "Maximum tokens to return in the response",
+            "temperature": "Temperature",
+            "top_p": "Top P"
+          },
+          "title": "Advanced settings"
+        },
+        "init": {
+          "data": {
+            "llm_hass_api": "Control Home Assistant",
+            "name": "Name",
+            "prompt": "Instructions",
+            "recommended": "Recommended model settings"
+          },
+          "data_description": {
+            "prompt": "Instruct how Mistral should respond. This can be a template."
+          }
+        }
+      }
+    },
+    "stt": {
+      "abort": {
+        "entry_not_loaded": "Cannot add things while the configuration is disabled.",
+        "reconfigure_successful": "Reconfiguration was successful"
+      },
+      "entry_type": "Speech-to-text",
+      "initiate_flow": {
+        "reconfigure": "Reconfigure speech-to-text service",
+        "user": "Add speech-to-text service"
+      },
+      "step": {
+        "init": {
+          "data": {
+            "name": "Name",
+            "stt_model": "Model"
+          },
+          "data_description": {
+            "stt_model": "The model used to transcribe audio."
+          }
+        }
+      }
+    },
+    "tts": {
+      "abort": {
+        "entry_not_loaded": "Cannot add things while the configuration is disabled.",
+        "reconfigure_successful": "Reconfiguration was successful"
+      },
+      "entry_type": "Text-to-speech",
+      "initiate_flow": {
+        "reconfigure": "Reconfigure text-to-speech service",
+        "user": "Add text-to-speech service"
+      },
+      "step": {
+        "init": {
+          "data": {
+            "language": "Default language",
+            "name": "Name",
+            "tts_model": "Model",
+            "voice": "Voice"
+          },
+          "data_description": {
+            "language": "The preferred language for this TTS entity.",
+            "tts_model": "The model used to synthesize speech.",
+            "voice": "The default voice used for speech generation."
+          }
+        }
+      }
+    }
+  }
+}

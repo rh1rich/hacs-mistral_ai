@@ -1,46 +1,120 @@
-# Notice
+[![hacs_badge](https://img.shields.io/badge/My_HACS-Mistral_AI-41BDF5?logo=homeassistant&logoColor=white)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rh1rich&repository=hacs-mistral_ai&category=integration)
+[![Validate workflow](https://img.shields.io/github/actions/workflow/status/rh1rich/hacs-mistral_ai/validate.yml?label=Validate&logo=github)](https://github.com/rh1rich/hacs-mistral_ai/actions/workflows/validate.yml)
+[![Lint workflow](https://img.shields.io/github/actions/workflow/status/rh1rich/hacs-mistral_ai/lint.yml?label=Lint&logo=github)](https://github.com/rh1rich/hacs-mistral_ai/actions/workflows/lint.yml)
 
-The component and platforms in this repository are not meant to be used by a
-user, but as a "blueprint" that custom component developers can build
-upon, to make more awesome stuff.
+<p align="center">
+	<img src="https://raw.githubusercontent.com/rh1rich/hacs-mistral_ai/main/custom_components/mistral_ai/brand/logo.png#gh-light-mode-only" alt="Mistral AI logo" width="420">
+	<img src="https://raw.githubusercontent.com/rh1rich/hacs-mistral_ai/main/custom_components/mistral_ai/brand/dark_logo.png#gh-dark-mode-only" alt="Mistral AI logo" width="420">
+</p>
 
-HAVE FUN! 😎
+<h3 align="center">Mistral AI Custom Integration for Home Assistant</h3>
 
-## Why?
+# What This Is
 
-This is simple, by having custom_components look (README + structure) the same
-it is easier for developers to help each other and for users to start using them.
+This custom integration brings [Mistral AI](https://mistral.ai/) to Home Assistant with native support for:
 
-If you are a developer and you want to add things to this "blueprint" that you think more
-developers will have use for, please open a PR to add it :)
+- Conversation
+- Text-to-speech
+- Speech-to-text
 
-## What?
+It is inspired by Home Assistant's built-in [OpenAI Conversation](https://www.home-assistant.io/integrations/openai_conversation/) and [Anthropic](https://www.home-assistant.io/integrations/anthropic/) integrations, while exposing Mistral models through the same Home Assistant-first configuration flow and Assist ecosystem.
 
-This repository contains multiple files, here is a overview:
+# What It Does
 
-File | Purpose | Documentation
--- | -- | --
-`.devcontainer.json` | Used for development/testing with Visual Studio Code. | [Documentation](https://code.visualstudio.com/docs/remote/containers)
-`.github/ISSUE_TEMPLATE/*.yml` | Templates for the issue tracker | [Documentation](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository)
-`custom_components/integration_blueprint/*` | Integration files, this is where everything happens. | [Documentation](https://developers.home-assistant.io/docs/creating_component_index)
-`CONTRIBUTING.md` | Guidelines on how to contribute. | [Documentation](https://help.github.com/en/github/building-a-strong-community/setting-guidelines-for-repository-contributors)
-`LICENSE` | The license file for the project. | [Documentation](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository)
-`README.md` | The file you are reading now, should contain info about the integration, installation and configuration instructions. | [Documentation](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax)
-`requirements.txt` | Python packages used for development/lint/testing this integration. | [Documentation](https://pip.pypa.io/en/stable/user_guide/#requirements-files)
+After setup, the integration creates dedicated subentries for all three Mistral AI capabilities:
 
-## How?
+- A streaming conversation agent that can be used with Assist and Home Assistant LLM tools
+- A text-to-speech entity backed by Mistral voices and multiple output formats
+- A speech-to-text entity for Assist pipelines and voice workflows
 
-1. Create a new repository in GitHub, using this repository as a template by clicking the "Use this template" button in the GitHub UI.
-1. Open your new repository in Visual Studio Code devcontainer (Preferably with the "`Dev Containers: Clone Repository in Named Container Volume...`" option).
-1. Rename all instances of the `integration_blueprint` to `custom_components/<your_integration_domain>` (e.g. `custom_components/awesome_integration`).
-1. Rename all instances of the `Integration Blueprint` to `<Your Integration Name>` (e.g. `Awesome Integration`).
-1. Run the `scripts/develop` to start HA and test out your new integration.
+The goal is to make Mistral AI feel like a natural Home Assistant provider rather than a separate sidecar service.
 
-## Next steps
+# Requirements
 
-These are some next steps you may want to look into:
-- Add tests to your integration, [`pytest-homeassistant-custom-component`](https://github.com/MatthewFlamm/pytest-homeassistant-custom-component) can help you get started.
-- Add brand images (logo/icon).
-- Create your first release.
-- Share your integration on the [Home Assistant Forum](https://community.home-assistant.io/).
-- Submit your integration to [HACS](https://hacs.xyz/docs/publish/start).
+| Integration version | Home Assistant version | Provider requirements |
+| --- | --- | --- |
+| `0.3.x` | `2026.4.0+` | A valid Mistral API key and access to the models you want to use |
+
+Recommended defaults used by the integration:
+
+- Conversation: `mistral-small-latest`
+- Speech-to-text: `voxtral-mini-latest`
+- Text-to-speech: `voxtral-mini-tts-latest`
+
+Available models and voices depend on your Mistral account.
+
+# Installation And Configuration
+
+## Install Through HACS
+
+1. Open HACS in Home Assistant.
+2. Add this repository, or use the direct link: [Mistral AI in HACS](https://my.home-assistant.io/redirect/hacs_repository/?owner=rh1rich&repository=hacs-mistral_ai&category=integration).
+3. Download the integration.
+4. Restart Home Assistant.
+
+## Set Up The Integration
+
+1. Go to Settings -> Devices & Services.
+2. Add the integration, or use the direct link: [Add Mistral AI](https://my.home-assistant.io/redirect/config_flow_start/?domain=mistral_ai).
+3. Enter your Mistral API key.
+4. Finish the config flow.
+
+By default, the integration creates:
+
+- One conversation subentry
+- One speech-to-text subentry
+- One text-to-speech subentry
+
+You can reconfigure each subentry later from the integration page.
+
+# Options
+
+## Conversation
+
+Conversation subentries support:
+
+- Prompt instructions using Home Assistant templates
+- Optional access to Home Assistant Assist tools through `llm_hass_api`
+- Model selection
+- Max tokens
+- Temperature
+- Top P
+
+## Speech-To-Text
+
+Speech-to-text subentries support:
+
+- Model selection
+- WAV and OGG input formats
+- Mono and stereo input
+- Multiple sample rates supported by Home Assistant STT entities
+
+## Text-To-Speech
+
+Text-to-speech subentries support:
+
+- Model selection
+- Voice selection
+- Default language selection
+- Streaming and non-streaming playback
+- `mp3`, `opus`, `wav`, `flac`, and `pcm` output formats
+
+# Notes And Limitations
+
+- This is a cloud integration and requires internet access.
+- Authentication and catalog discovery are performed against the Mistral API.
+- Voice availability and supported languages come from the provider's current voice catalog.
+- Runtime dependency compatibility is pinned in the integration manifest and mirrored in `requirements.txt` for development.
+
+# Changelog
+
+See the [release history](https://github.com/rh1rich/hacs-mistral_ai/releases).
+
+# Contributing
+
+Issues and pull requests are welcome. See [CONTRIBUTING.md](./CONTRIBUTING.md) for development guidance.
+
+# License
+
+[MIT](LICENSE)
+

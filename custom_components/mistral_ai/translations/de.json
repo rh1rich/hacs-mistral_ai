@@ -1,0 +1,116 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Dienst ist bereits konfiguriert",
+      "reauth_successful": "Die erneute Authentifizierung war erfolgreich"
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen",
+      "invalid_auth": "Ungültige Authentifizierung",
+      "unknown": "Unerwarteter Fehler"
+    },
+    "step": {
+      "reauth_confirm": {
+        "data": {
+          "api_key": "API-Schlüssel"
+        },
+        "data_description": {
+          "api_key": "Ihr Mistral API-Schlüssel."
+        },
+        "description": "Eine erneute Authentifizierung ist erforderlich. Geben Sie Ihren aktualisierten Mistral API-Schlüssel ein."
+      },
+      "user": {
+        "data": {
+          "api_key": "API-Schlüssel"
+        },
+        "data_description": {
+          "api_key": "Ihr Mistral API-Schlüssel."
+        },
+        "description": "Richten Sie die Mistral AI-Integration ein, indem Sie Ihren Mistral API-Schlüssel angeben. Anweisungen zum Generieren eines API-Schlüssels finden Sie in [der Mistral-Dokumentation]({instructions_url})."
+      }
+    }
+  },
+  "config_subentries": {
+    "conversation": {
+      "abort": {
+        "entry_not_loaded": "Es können keine Elemente hinzugefügt werden, während die Konfiguration deaktiviert ist.",
+        "reconfigure_successful": "Die Neukonfiguration war erfolgreich"
+      },
+      "entry_type": "Konversations-Agent",
+      "initiate_flow": {
+        "reconfigure": "Konversations-Agent neu konfigurieren",
+        "user": "Konversations-Agent hinzufügen"
+      },
+      "step": {
+        "advanced": {
+          "data": {
+            "chat_model": "Modell",
+            "max_tokens": "Maximale Token in der Antwort",
+            "temperature": "Temperatur",
+            "top_p": "Top P"
+          },
+          "title": "Erweiterte Einstellungen"
+        },
+        "init": {
+          "data": {
+            "llm_hass_api": "Home Assistant steuern",
+            "name": "Name",
+            "prompt": "Anweisungen",
+            "recommended": "Empfohlene Modelleinstellungen"
+          },
+          "data_description": {
+            "prompt": "Geben Sie Anweisungen, wie Mistral reagieren soll. Dies kann ein Template sein."
+          }
+        }
+      }
+    },
+    "stt": {
+      "abort": {
+        "entry_not_loaded": "Es können keine Elemente hinzugefügt werden, während die Konfiguration deaktiviert ist.",
+        "reconfigure_successful": "Die Neukonfiguration war erfolgreich"
+      },
+      "entry_type": "Sprache-zu-Text",
+      "initiate_flow": {
+        "reconfigure": "Sprache-zu-Text-Dienst neu konfigurieren",
+        "user": "Sprache-zu-Text-Dienst hinzufügen"
+      },
+      "step": {
+        "init": {
+          "data": {
+            "name": "Name",
+            "stt_model": "Modell"
+          },
+          "data_description": {
+            "stt_model": "Das Modell für die Transkription."
+          }
+        }
+      }
+    },
+    "tts": {
+      "abort": {
+        "entry_not_loaded": "Es können keine Elemente hinzugefügt werden, während die Konfiguration deaktiviert ist.",
+        "reconfigure_successful": "Die Neukonfiguration war erfolgreich"
+      },
+      "entry_type": "Text-zu-Sprache",
+      "initiate_flow": {
+        "reconfigure": "Text-zu-Sprache-Dienst neu konfigurieren",
+        "user": "Text-zu-Sprache-Dienst hinzufügen"
+      },
+      "step": {
+        "init": {
+          "data": {
+            "language": "Standardsprache",
+            "name": "Name",
+            "tts_model": "Modell",
+            "voice": "Stimme"
+          },
+          "data_description": {
+            "language": "Die bevorzugte Sprache für die Sprachgenerierung.",
+            "tts_model": "Das Modell für die Sprachgenerierung.",
+            "voice": "Die Stimme für die Sprachgenerierung."
+          }
+        }
+      }
+    }
+  }
+}
