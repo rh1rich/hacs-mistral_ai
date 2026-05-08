@@ -1,7 +1,8 @@
 [![hacs_badge](https://img.shields.io/badge/My_HACS-Mistral_AI-41BDF5?logo=homeassistant&logoColor=white)](https://my.home-assistant.io/redirect/hacs_repository/?owner=rh1rich&repository=hacs-mistral_ai&category=integration)
 [![Validate workflow](https://img.shields.io/github/actions/workflow/status/rh1rich/hacs-mistral_ai/validate.yml?label=Validate&logo=github)](https://github.com/rh1rich/hacs-mistral_ai/actions/workflows/validate.yml)
+![GitHub all releases](https://img.shields.io/github/downloads/rh1rich/hacs-mistral_ai/total?color=d9810f&label=Downloads&logo=GitHub)
+
 <!-- [![Lint workflow](https://img.shields.io/github/actions/workflow/status/rh1rich/hacs-mistral_ai/lint.yml?label=Lint&logo=github)](https://github.com/rh1rich/hacs-mistral_ai/actions/workflows/lint.yml) -->
-![GitHub all releases](https://img.shields.io/github/downloads/joselcaguilar/azure-openai-ha/total?color=d9810f&label=Downloads&logo=GitHub)
 
 <p align="center">
 	<img src="https://raw.githubusercontent.com/rh1rich/hacs-mistral_ai/main/custom_components/mistral_ai/brand/logo.png#gh-light-mode-only" alt="Mistral AI logo" width="420">
